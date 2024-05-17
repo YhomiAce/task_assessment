@@ -1,9 +1,9 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 
-export class SuccessResponse {
+export class ErrorResponse {
   @ApiResponseProperty()
-  message?: string;
-  
+  message: string;
+
   @ApiResponseProperty()
-  data?: any;
+  status: boolean;
 }

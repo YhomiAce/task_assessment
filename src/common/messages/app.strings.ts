@@ -8,4 +8,6 @@ export const AppStrings = {
   RESOURCE_NOT_FOUND: (name: string) => `${name} does not exist`,
   EXISTING_RESOURCE: (name: string) => `${name} already exist`,
   USER_CREATED: "Welcome aboard! Your registration was successful.",
+  INVALID_EMAIL_OR_PASSWORD: "Invalid credentials",
+  WRONG_REFRESH_TOKEN: 'Refresh Token is Wrong',
 };
