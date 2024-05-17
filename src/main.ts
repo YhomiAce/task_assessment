@@ -1,5 +1,5 @@
-import { NestFactory, Reflector } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { NestApplication, NestFactory, Reflector } from '@nestjs/core';
+import { AppModule } from './modules/app/app.module';
 import {
   ClassSerializerInterceptor,
   ValidationPipe,
@@ -9,8 +9,9 @@ import { ResponseInterceptor } from './config/interceptors';
 import { DBExceptionFilter, HttpExceptionFilter } from './config/exceptions';
 import { initSwagger } from './docs/swagger';
 
+let app: NestApplication;
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  app = await NestFactory.create(AppModule);
   app.enableCors();
   app.enableVersioning({
     type: VersioningType.URI,
@@ -40,3 +41,5 @@ async function bootstrap() {
   await app.listen(3000);
 }
 bootstrap();
+
+export { app };
