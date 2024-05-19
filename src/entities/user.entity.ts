@@ -5,11 +5,13 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   UpdateDateColumn,
 } from 'typeorm';
 import BaseEntity from './base.entity';
 import * as bcrypt from 'bcrypt';
 import { Exclude } from 'class-transformer';
+import { Task } from './task.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -27,8 +29,16 @@ export class User extends BaseEntity {
   @Column({nullable: true})
   refreshToken: string;
 
+  @Exclude()
   @Column({ nullable: true })
   lastLogin: Date;
+
+  @OneToMany(() => Task, (task) => task.user)
+  tasks: Task[];
+
+  @Exclude()
+  @Column({nullable: true})
+  socketId: string;
 
   @CreateDateColumn()
   createdAt: Date;

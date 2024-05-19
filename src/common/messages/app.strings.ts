@@ -10,4 +10,7 @@ export const AppStrings = {
   USER_CREATED: "Welcome aboard! Your registration was successful.",
   INVALID_EMAIL_OR_PASSWORD: "Invalid credentials",
   WRONG_REFRESH_TOKEN: 'Refresh Token is Wrong',
+  TASK_CREATED: 'Task created successfully',
+  TASK_UPDATED: 'Task updated successfully',
+  TASK_DELETED: 'Your task has been deleted',
 };

@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from '../../config/configuration';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
+import { TaskModule } from '../task/task.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
@@ -18,7 +20,9 @@ import { AuthModule } from '../auth/auth.module';
         }),
       inject: [ConfigService],
     }),
-    AuthModule
+    AuthModule,
+    TaskModule,
+    EventEmitterModule.forRoot(),
   ],
 })
 export class AppModule {}
